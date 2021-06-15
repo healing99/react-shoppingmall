@@ -21,6 +21,7 @@ const Main = () => {
 
   return (
     <>
+      <Navbar setCartOpen={setCartOpen} />
       <Drawer anchor="right" open={cartOpen} onClose={() => setCartOpen(false)}>
         Cart
       </Drawer>
