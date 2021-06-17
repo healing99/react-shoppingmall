@@ -6,6 +6,7 @@ export default [
     price: 120000,
     image:
       "https://image.adidas.co.kr/upload/prod/basic/source/EH0050-01-01.jpg",
+    amount: 1,
   },
 
   {
@@ -15,6 +16,7 @@ export default [
     price: 289000,
     image:
       "https://image.adidas.co.kr/upload/prod/basic/source/H02795-01-01.jpg",
+    amount: 0,
   },
 
   {
@@ -24,6 +26,7 @@ export default [
     price: 130000,
     image:
       "https://image.adidas.co.kr/upload/prod/basic/source/FV6956-01-01.jpg",
+    amount: 0,
   },
 
   {
@@ -33,5 +36,6 @@ export default [
     price: 130000,
     image:
       "https://image.adidas.co.kr/upload/prod/basic/source/FV6956-01-01.jpg",
+    amount: 0,
   },
 ];

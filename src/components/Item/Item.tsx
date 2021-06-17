@@ -9,9 +9,10 @@ const Item: React.FC<Props> = ({ item, handleAddToCart }) => {
   return (
     <Wrapper>
       <div>
-        <img src={item.image} />
+        <img src={item.image} alt={item.image} />
         <h4>{item.title}</h4>
         <p>{item.content}</p>
+        <p>{item.price}</p>
         <button onClick={() => handleAddToCart(item)}>카트에 담기</button>
       </div>
     </Wrapper>

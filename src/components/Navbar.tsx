@@ -22,6 +22,7 @@ type Props = {
 };
 
 const Navbar: React.FC<Props> = ({ setCartOpen }) => {
+  //Functional Component (Props 타입의 props를 가진다)
   return (
     <Wrapper>
       <button onClick={() => setCartOpen(true)}>카트 열기</button>
