@@ -16,11 +16,15 @@ export const Wrapper = styled.div`
 
     &:hover {
       color: #fff;
-      background-color: #660096;
+      background-color: ${({ theme }) => theme.colors.main};
     }
   }
   img {
     height: 250px;
     width: 100%;
+  }
+
+  .item-click {
+    cursor: pointer;
   }
 `;

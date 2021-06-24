@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   justify-content: center;
 
   .title {
-    color: #660096;
+    color: ${({ theme }) => theme.colors.main};
     font-size: 20px;
     font-weight: bold;
   }

@@ -50,7 +50,7 @@ export const Wrapper = styled.div`
 
     &__confirm-btn {
       border: none;
-      background-color: #660096;
+      background-color: ${({ theme }) => theme.colors.main};
       color: #fff;
     }
   }
