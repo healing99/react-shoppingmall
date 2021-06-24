@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { CartItemType } from "../pages/Main";
+import { Badge, IconButton } from "@material-ui/core";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,23 +13,32 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  button {
-    height: 30px;
+  .cart-icon {
     position: absolute;
-    right: 20px;
+    right: 40px;
+    cursor: pointer;
   }
 `;
-
 type Props = {
   setCartOpen: (cartOpen: boolean) => void;
+  getTotalItems: (items: CartItemType[]) => number;
+  cartItems: CartItemType[];
 };
 
-const Navbar: React.FC<Props> = ({ setCartOpen }) => {
+const Navbar: React.FC<Props> = ({ setCartOpen, getTotalItems, cartItems }) => {
   //Functional Component (Props 타입의 props를 가진다)
   return (
     <Wrapper>
-      <button onClick={() => setCartOpen(true)}>카트 열기</button>
       <div className="title">Shopping Mall</div>
+      <IconButton className="cart-icon">
+        <Badge
+          badgeContent={getTotalItems(cartItems)}
+          color="error"
+          className="cart-badge"
+        >
+          <ShoppingCartIcon onClick={() => setCartOpen(true)} />
+        </Badge>
+      </IconButton>
     </Wrapper>
   );
 };
