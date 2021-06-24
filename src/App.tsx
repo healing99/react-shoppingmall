@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Main } from "./pages/index";
+import { ItemDetail, Main } from "./pages/index";
 
 const App = () => {
   return (
@@ -8,6 +8,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/" exact component={Main} />
+          <Route path="/item/:itemId" exact component={ItemDetail} />
           <Route component={() => <div>Page Not Found</div>} />
         </Switch>
       </Router>

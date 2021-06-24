@@ -6,7 +6,7 @@ import Watermelon from "./assets/image/Watermelon.jpg";
 
 export default [
   {
-    id: 0,
+    id: 1,
     title: "바닐라 아이스크림",
     content: "dairy",
     price: 1400,
@@ -15,7 +15,7 @@ export default [
   },
 
   {
-    id: 1,
+    id: 2,
     title: "올리브오일",
     content: "oil",
     price: 12000,
@@ -24,7 +24,7 @@ export default [
   },
 
   {
-    id: 2,
+    id: 3,
     title: "제주 감귤 1kg",
     content: "fruit",
     price: 13200,
@@ -33,7 +33,7 @@ export default [
   },
 
   {
-    id: 3,
+    id: 4,
     title: "무농약 토마토 1kg",
     content: "fruit",
     price: 6900,
@@ -42,7 +42,7 @@ export default [
   },
 
   {
-    id: 4,
+    id: 5,
     title: "당도선별 고당도 수박",
     content: "fruit",
     price: 16000,
