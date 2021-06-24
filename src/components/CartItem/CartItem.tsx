@@ -14,8 +14,8 @@ const CartItem: React.FC<Props> = ({ item, addToCart, removeFromCart }) => {
       <div>
         <h3>{item.title}</h3>
         <div className="item-info">
-          <p>Price: {item.price}원</p>
-          <p>Total: {item.amount * item.price}원</p>
+          <p>가격: {item.price}원</p>
+          <p>총가격: {item.amount * item.price}원</p>
         </div>
         <div className="item-buttons">
           <Button

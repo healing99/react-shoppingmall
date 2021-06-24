@@ -21,6 +21,14 @@ const Main = () => {
   const [cartItems, setCartItems] = useState([] as CartItemType[]);
   const [cartOpen, setCartOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState({
+    id: 0,
+    title: "",
+    content: "",
+    image: "",
+    price: 0,
+    amount: 0,
+  });
 
   const getTotalItems = (items: CartItemType[]) =>
     items.reduce((ack: number, item) => ack + item.amount, 0);
@@ -61,7 +69,11 @@ const Main = () => {
         cartItems={cartItems}
       />
       {modalOpen ? (
-        <Modal setModalOpen={setModalOpen} handleAddToCart={handleAddToCart} />
+        <Modal
+          setModalOpen={setModalOpen}
+          handleAddToCart={handleAddToCart}
+          selectedItem={selectedItem}
+        />
       ) : null}
       <Drawer anchor="right" open={cartOpen} onClose={() => setCartOpen(false)}>
         <Cart
@@ -73,7 +85,12 @@ const Main = () => {
       <Wrapper>
         <div className="item-container">
           {items?.map((item) => (
-            <Item key={item.id} item={item} setModalOpen={setModalOpen} />
+            <Item
+              key={item.id}
+              item={item}
+              setModalOpen={setModalOpen}
+              setSelectedItem={setSelectedItem}
+            />
           ))}
         </div>
       </Wrapper>

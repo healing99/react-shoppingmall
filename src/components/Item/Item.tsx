@@ -5,12 +5,14 @@ import { useHistory } from "react-router-dom";
 type Props = {
   item: CartItemType;
   setModalOpen: (modalOpen: boolean) => void;
+  setSelectedItem: (selectedItem: CartItemType) => void;
 };
-const Item: React.FC<Props> = ({ item, setModalOpen }) => {
+const Item: React.FC<Props> = ({ item, setModalOpen, setSelectedItem }) => {
   const history = useHistory();
 
   const handleAddClick = () => {
     setModalOpen(true);
+    setSelectedItem(item);
   };
   const moveToDetail = () => {
     history.push(`/item/${item.id}`);

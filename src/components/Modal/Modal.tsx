@@ -4,11 +4,16 @@ import { Wrapper } from "./Modal.styles";
 type Props = {
   setModalOpen: (modalOpen: boolean) => void;
   handleAddToCart: (clickedItem: CartItemType) => void;
+  selectedItem: CartItemType;
 };
-const Modal: React.FC<Props> = ({ setModalOpen, handleAddToCart }) => {
+const Modal: React.FC<Props> = ({
+  setModalOpen,
+  handleAddToCart,
+  selectedItem,
+}) => {
   const handleConfirm = () => {
-    setModalOpen(true);
-    //handleAddToCart();
+    setModalOpen(false);
+    handleAddToCart(selectedItem);
   };
   return (
     <Wrapper>
