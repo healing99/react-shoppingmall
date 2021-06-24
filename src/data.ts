@@ -1,41 +1,52 @@
+import Icecream from "./assets/image/Icecream.jpg";
+import Oliveoil from "./assets/image/Oliveoil.jpg";
+import Tangerine from "./assets/image/Tangerine.jpg";
+import Tomato from "./assets/image/Tomato.jpg";
+import Watermelon from "./assets/image/Watermelon.jpg";
+
 export default [
   {
     id: 0,
-    title: "슈퍼스타",
-    content: "Born in France",
-    price: 120000,
-    image:
-      "https://image.adidas.co.kr/upload/prod/basic/source/EH0050-01-01.jpg",
+    title: "바닐라 아이스크림",
+    content: "dairy",
+    price: 1400,
+    image: `${Icecream}`,
     amount: 1,
   },
 
   {
     id: 1,
-    title: "이지 부스트 350 V2",
-    content: "인기",
-    price: 289000,
-    image:
-      "https://image.adidas.co.kr/upload/prod/basic/source/H02795-01-01.jpg",
+    title: "올리브오일",
+    content: "oil",
+    price: 12000,
+    image: `${Oliveoil}`,
     amount: 0,
   },
 
   {
     id: 2,
-    title: "크리스티나이드",
-    content: "Born in the States",
-    price: 130000,
-    image:
-      "https://image.adidas.co.kr/upload/prod/basic/source/FV6956-01-01.jpg",
+    title: "제주 감귤 1kg",
+    content: "fruit",
+    price: 13200,
+    image: `${Tangerine}`,
     amount: 0,
   },
 
   {
     id: 3,
-    title: "크리스티나이드2",
-    content: "Born in the States2",
-    price: 130000,
-    image:
-      "https://image.adidas.co.kr/upload/prod/basic/source/FV6956-01-01.jpg",
+    title: "무농약 토마토 1kg",
+    content: "fruit",
+    price: 6900,
+    image: `${Tomato}`,
+    amount: 0,
+  },
+
+  {
+    id: 4,
+    title: "당도선별 고당도 수박",
+    content: "fruit",
+    price: 16000,
+    image: `${Watermelon}`,
     amount: 0,
   },
 ];

@@ -9,6 +9,6 @@ export const Wrapper = styled.div`
     margin-top: 60px;
     display: flex;
     flex-flow: wrap;
-    max-width: 1000px;
+    max-width: 1100px;
   }
 `;

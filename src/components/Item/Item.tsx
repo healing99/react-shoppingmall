@@ -14,8 +14,7 @@ const Item: React.FC<Props> = ({ item, setModalOpen }) => {
       <div>
         <img src={item.image} alt={item.image} />
         <h4>{item.title}</h4>
-        <p>{item.content}</p>
-        <p>{item.price}</p>
+        <p>{item.price}원</p>
         <button onClick={handleAddClick}>카트에 담기</button>
       </div>
     </Wrapper>

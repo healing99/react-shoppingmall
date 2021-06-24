@@ -1,19 +1,26 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  border: 1px solid #a1a1f8;
-  border-radius: 20px;
-  margin: 10px 24px;
+  border: 1px solid lightgray;
+  margin: 20px 30px;
   text-align: center;
+  width: 300px;
+
   button {
-    border-radius: 20px;
+    border: 1px solid lightgray;
+    width: 100px;
+    height: 40px;
+    background: #fff;
+    margin-bottom: 10px;
     cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      background-color: #660096;
+    }
   }
   img {
     height: 250px;
-    border-radius: 20px;
-  }
-  div {
-    padding: 1rem;
+    width: 100%;
   }
 `;
