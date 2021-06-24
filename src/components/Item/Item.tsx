@@ -3,9 +3,12 @@ import { Wrapper } from "./Item.styles";
 
 type Props = {
   item: CartItemType;
-  handleAddToCart: (clickedItem: CartItemType) => void;
+  setModalOpen: (modalOpen: boolean) => void;
 };
-const Item: React.FC<Props> = ({ item, handleAddToCart }) => {
+const Item: React.FC<Props> = ({ item, setModalOpen }) => {
+  const handleAddClick = () => {
+    setModalOpen(true);
+  };
   return (
     <Wrapper>
       <div>
@@ -13,7 +16,7 @@ const Item: React.FC<Props> = ({ item, handleAddToCart }) => {
         <h4>{item.title}</h4>
         <p>{item.content}</p>
         <p>{item.price}</p>
-        <button onClick={() => handleAddToCart(item)}>카트에 담기</button>
+        <button onClick={handleAddClick}>카트에 담기</button>
       </div>
     </Wrapper>
   );

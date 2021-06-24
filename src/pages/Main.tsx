@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Drawer, Badge } from "@material-ui/core";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import { useState } from "react";
+import { Drawer } from "@material-ui/core";
 import Item from "../components/Item/Item";
 import Data from "../data";
 import { Wrapper } from "./Main.styles";
 import Navbar from "../components/Navbar";
 import Cart from "../components/Cart/Cart";
+import Modal from "../components/Modal/Modal";
 
 export type CartItemType = {
   id: number;
@@ -20,6 +20,7 @@ const Main = () => {
   const [items, setItems] = useState(Data);
   const [cartItems, setCartItems] = useState([] as CartItemType[]);
   const [cartOpen, setCartOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const getTotalItems = (items: CartItemType[]) =>
     items.reduce((ack: number, item) => ack + item.amount, 0);
@@ -59,6 +60,9 @@ const Main = () => {
         getTotalItems={getTotalItems}
         cartItems={cartItems}
       />
+      {modalOpen ? (
+        <Modal setModalOpen={setModalOpen} handleAddToCart={handleAddToCart} />
+      ) : null}
       <Drawer anchor="right" open={cartOpen} onClose={() => setCartOpen(false)}>
         <Cart
           cartItems={cartItems}
@@ -69,7 +73,7 @@ const Main = () => {
       <Wrapper>
         <div className="item-container">
           {items?.map((item) => (
-            <Item key={item.id} item={item} handleAddToCart={handleAddToCart} />
+            <Item key={item.id} item={item} setModalOpen={setModalOpen} />
           ))}
         </div>
       </Wrapper>

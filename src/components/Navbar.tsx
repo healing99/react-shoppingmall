@@ -8,10 +8,16 @@ const Wrapper = styled.div`
   display: flex;
   width: 100%;
   height: 60px;
-  background-color: #a1a1f8;
+  background-color: #fff;
   position: relative;
   align-items: center;
   justify-content: center;
+
+  .title {
+    color: #660096;
+    font-size: 20px;
+    font-weight: bold;
+  }
 
   .cart-icon {
     position: absolute;
@@ -29,13 +35,9 @@ const Navbar: React.FC<Props> = ({ setCartOpen, getTotalItems, cartItems }) => {
   //Functional Component (Props 타입의 props를 가진다)
   return (
     <Wrapper>
-      <div className="title">Shopping Mall</div>
+      <div className="title">Market Kurly</div>
       <IconButton className="cart-icon">
-        <Badge
-          badgeContent={getTotalItems(cartItems)}
-          color="error"
-          className="cart-badge"
-        >
+        <Badge badgeContent={getTotalItems(cartItems)} color="error">
           <ShoppingCartIcon onClick={() => setCartOpen(true)} />
         </Badge>
       </IconButton>
