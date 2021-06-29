@@ -1,4 +1,3 @@
-import Navbar from "../../components/Navbar";
 import { Wrapper } from "./ItemDetail.styles";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
@@ -12,10 +11,11 @@ type LocationState = {
 const ItemDetail = () => {
   const [item, setItem] = useState<CartItemType | null>(null);
   const location = useLocation<LocationState>();
+
   useEffect(() => {
-    console.log(location.state.item);
     setItem(location.state.item);
   }, []);
+
   return (
     <Wrapper>
       <div className="item">
