@@ -15,12 +15,12 @@ const Item: React.FC<Props> = ({ item, setModalOpen, setSelectedItem }) => {
     setSelectedItem(item);
   };
   const moveToDetail = () => {
-    // history.push({
-    //   pathname: `/item/${item.id}`,
-    //   state: {
-    //     item: item,
-    //   },
-    // });
+    history.push({
+      pathname: `/item/${item.id}`,
+      state: {
+        item: item,
+      },
+    });
   };
   return (
     <Wrapper>

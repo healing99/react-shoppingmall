@@ -24,10 +24,6 @@ const Main = () => {
     amount: 0,
   });
 
-  const getTotalItems = (items: CartItemType[]) =>
-    items.reduce((ack: number, item) => ack + item.amount, 0);
-  //배열.reduce((누적값, 현잿값, 인덱스, 요소) => { return 결과 }, 초깃값);
-
   const handleAddToCart = (clickedItem: CartItemType) => {
     setCartItems((prev) => {
       const isItemInCart = prev.find((item) => item.id === clickedItem.id);
@@ -58,7 +54,7 @@ const Main = () => {
   };
   return (
     <>
-      <Navbar setCartOpen={setCartOpen} getTotalItems={getTotalItems} />
+      <Navbar setCartOpen={setCartOpen} />
       {modalOpen ? (
         <Modal
           setModalOpen={setModalOpen}

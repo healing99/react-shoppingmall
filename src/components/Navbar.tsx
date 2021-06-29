@@ -42,12 +42,16 @@ const Wrapper = styled.div`
 `;
 type Props = {
   setCartOpen: (cartOpen: boolean) => void;
-  getTotalItems: (items: CartItemType[]) => number;
 };
 
-const Navbar: React.FC<Props> = ({ setCartOpen, getTotalItems }) => {
+//Functional Component (Props 타입의 props를 가진다)
+const Navbar: React.FC<Props> = ({ setCartOpen }) => {
   const cartItems = useRecoilValue(cartItemState);
-  //Functional Component (Props 타입의 props를 가진다)
+
+  //배열.reduce((누적값, 현잿값, 인덱스, 요소) => { return 결과 }, 초깃값);
+  const getTotalItems = (items: CartItemType[]) =>
+    items.reduce((ack: number, item) => ack + item.amount, 0);
+
   return (
     <Wrapper>
       <div className="title">Market Kurly</div>
