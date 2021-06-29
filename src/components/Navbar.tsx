@@ -15,13 +15,26 @@ const Wrapper = styled.div`
 
   .title {
     color: ${({ theme }) => theme.colors.main};
-    font-size: 20px;
+    font-size: 28px;
     font-weight: bold;
   }
 
   .cart-icon {
     position: absolute;
     right: 40px;
+    cursor: pointer;
+  }
+
+  .signup-btn {
+    position: absolute;
+    right: 260px;
+    color: ${({ theme }) => theme.colors.main};
+    cursor: pointer;
+  }
+
+  .login-btn {
+    position: absolute;
+    right: 200px;
     cursor: pointer;
   }
 `;
@@ -36,6 +49,8 @@ const Navbar: React.FC<Props> = ({ setCartOpen, getTotalItems, cartItems }) => {
   return (
     <Wrapper>
       <div className="title">Market Kurly</div>
+      <div className="signup-btn">회원가입</div>
+      <div className="login-btn">로그인</div>
       <IconButton className="cart-icon">
         <Badge badgeContent={getTotalItems(cartItems)} color="error">
           <ShoppingCartIcon onClick={() => setCartOpen(true)} />
