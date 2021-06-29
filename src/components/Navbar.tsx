@@ -5,6 +5,7 @@ import { cartItemState } from "../states";
 import { useRecoilValue } from "recoil";
 import { Badge, IconButton } from "@material-ui/core";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { useHistory } from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const Wrapper = styled.div`
     color: ${({ theme }) => theme.colors.main};
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
   }
 
   .cart-icon {
@@ -40,12 +42,14 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
 `;
+
 type Props = {
   setCartOpen: (cartOpen: boolean) => void;
 };
 
 //Functional Component (Props 타입의 props를 가진다)
 const Navbar: React.FC<Props> = ({ setCartOpen }) => {
+  const history = useHistory();
   const cartItems = useRecoilValue(cartItemState);
 
   //배열.reduce((누적값, 현잿값, 인덱스, 요소) => { return 결과 }, 초깃값);
@@ -54,7 +58,9 @@ const Navbar: React.FC<Props> = ({ setCartOpen }) => {
 
   return (
     <Wrapper>
-      <div className="title">Market Kurly</div>
+      <div className="title" onClick={() => history.push("/")}>
+        Market Kurly
+      </div>
       <div className="signup-btn">회원가입</div>
       <div className="login-btn">로그인</div>
       <IconButton className="cart-icon">

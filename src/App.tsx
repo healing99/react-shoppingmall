@@ -7,8 +7,8 @@ const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
   return (
     <div className="App">
-      <Navbar setCartOpen={setCartOpen} />
       <Router>
+        <Navbar setCartOpen={setCartOpen} />
         <Switch>
           <Route
             path="/"
