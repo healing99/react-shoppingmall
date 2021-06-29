@@ -1,19 +1,22 @@
 import { useState } from "react";
 import { Drawer } from "@material-ui/core";
-import Item from "../components/Item/Item";
-import Data from "../data";
+import Item from "../../components/Item/Item";
+import Data from "../../data";
 import { Wrapper } from "./Main.styles";
-import Navbar from "../components/Navbar";
-import Cart from "../components/Cart/Cart";
-import Modal from "../components/Modal/Modal";
-import { CartItemType } from "../types";
+import Cart from "../../components/Cart/Cart";
+import Modal from "../../components/Modal/Modal";
+import { CartItemType } from "../../types";
 import { useRecoilState } from "recoil";
-import { cartItemState } from "../states";
+import { cartItemState } from "../../states";
 
-const Main = () => {
+interface Props {
+  cartOpen: boolean;
+  setCartOpen: (cartOpen: boolean) => void;
+}
+
+const Main: React.FC<Props> = ({ cartOpen, setCartOpen }) => {
   const [items, setItems] = useState(Data);
   const [cartItems, setCartItems] = useRecoilState(cartItemState);
-  const [cartOpen, setCartOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({
     id: 0,
@@ -54,7 +57,6 @@ const Main = () => {
   };
   return (
     <>
-      <Navbar setCartOpen={setCartOpen} />
       {modalOpen ? (
         <Modal
           setModalOpen={setModalOpen}
