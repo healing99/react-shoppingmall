@@ -6,19 +6,13 @@ import { Wrapper } from "./Main.styles";
 import Navbar from "../components/Navbar";
 import Cart from "../components/Cart/Cart";
 import Modal from "../components/Modal/Modal";
-
-export type CartItemType = {
-  id: number;
-  title: string;
-  content: string;
-  image: string;
-  price: number;
-  amount: number;
-};
+import { CartItemType } from "../types";
+import { useRecoilState } from "recoil";
+import { cartItemState } from "../states";
 
 const Main = () => {
   const [items, setItems] = useState(Data);
-  const [cartItems, setCartItems] = useState([] as CartItemType[]);
+  const [cartItems, setCartItems] = useRecoilState(cartItemState);
   const [cartOpen, setCartOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({
@@ -32,6 +26,7 @@ const Main = () => {
 
   const getTotalItems = (items: CartItemType[]) =>
     items.reduce((ack: number, item) => ack + item.amount, 0);
+  //배열.reduce((누적값, 현잿값, 인덱스, 요소) => { return 결과 }, 초깃값);
 
   const handleAddToCart = (clickedItem: CartItemType) => {
     setCartItems((prev) => {
@@ -63,11 +58,7 @@ const Main = () => {
   };
   return (
     <>
-      <Navbar
-        setCartOpen={setCartOpen}
-        getTotalItems={getTotalItems}
-        cartItems={cartItems}
-      />
+      <Navbar setCartOpen={setCartOpen} getTotalItems={getTotalItems} />
       {modalOpen ? (
         <Modal
           setModalOpen={setModalOpen}
@@ -77,7 +68,6 @@ const Main = () => {
       ) : null}
       <Drawer anchor="right" open={cartOpen} onClose={() => setCartOpen(false)}>
         <Cart
-          cartItems={cartItems}
           addToCart={handleAddToCart}
           removeFromCart={handleRemoveFromCart}
         />

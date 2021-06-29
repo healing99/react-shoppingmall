@@ -1,4 +1,4 @@
-import { CartItemType } from "../../pages/Main";
+import { CartItemType } from "../../types";
 import { Wrapper } from "./Item.styles";
 import { useHistory } from "react-router-dom";
 
@@ -15,7 +15,12 @@ const Item: React.FC<Props> = ({ item, setModalOpen, setSelectedItem }) => {
     setSelectedItem(item);
   };
   const moveToDetail = () => {
-    history.push(`/item/${item.id}`);
+    // history.push({
+    //   pathname: `/item/${item.id}`,
+    //   state: {
+    //     item: item,
+    //   },
+    // });
   };
   return (
     <Wrapper>

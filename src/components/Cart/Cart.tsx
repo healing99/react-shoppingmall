@@ -1,14 +1,16 @@
 import { Wrapper } from "./Cart.styles";
-import { CartItemType } from "../../pages/Main";
+import { CartItemType } from "../../types";
 import CartItem from "../CartItem/CartItem";
+import { useRecoilValue } from "recoil";
+import { cartItemState } from "../../states";
 
 type Props = {
-  cartItems: CartItemType[];
   addToCart: (clickedItem: CartItemType) => void;
   removeFromCart: (id: number) => void;
 };
 
-const Cart: React.FC<Props> = ({ cartItems, addToCart, removeFromCart }) => {
+const Cart: React.FC<Props> = ({ addToCart, removeFromCart }) => {
+  const cartItems = useRecoilValue(cartItemState);
   const calculateTotal = (items: CartItemType[]) =>
     items.reduce((ack: number, item) => ack + item.amount * item.price, 0);
   return (

@@ -1,4 +1,4 @@
-import { CartItemType } from "../../pages/Main";
+import { CartItemType } from "../../types";
 import { Wrapper } from "./Modal.styles";
 
 type Props = {

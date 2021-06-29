@@ -1,4 +1,3 @@
-import Navbar from "../../components/Navbar";
 import { Wrapper } from "./ItemDetail.styles";
 import Icecream from "../../assets/image/Icecream.jpg";
 

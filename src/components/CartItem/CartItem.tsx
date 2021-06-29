@@ -1,5 +1,5 @@
 import { Wrapper } from "./CartItem.styles";
-import { CartItemType } from "../../pages/Main";
+import { CartItemType } from "../../types";
 import Button from "@material-ui/core/Button";
 
 type Props = {

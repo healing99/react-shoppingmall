@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { CartItemType } from "../pages/Main";
+import { CartItemType } from "../types";
+import { cartItemState } from "../states";
+import { useRecoilValue } from "recoil";
 import { Badge, IconButton } from "@material-ui/core";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
@@ -41,10 +43,10 @@ const Wrapper = styled.div`
 type Props = {
   setCartOpen: (cartOpen: boolean) => void;
   getTotalItems: (items: CartItemType[]) => number;
-  cartItems: CartItemType[];
 };
 
-const Navbar: React.FC<Props> = ({ setCartOpen, getTotalItems, cartItems }) => {
+const Navbar: React.FC<Props> = ({ setCartOpen, getTotalItems }) => {
+  const cartItems = useRecoilValue(cartItemState);
   //Functional Component (Props 타입의 props를 가진다)
   return (
     <Wrapper>
