@@ -2,6 +2,7 @@ import { Wrapper } from "./ItemDetail.styles";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { CartItemType } from "../../types";
+import Data from "../../data";
 
 type LocationState = {
   from: Location;
@@ -11,9 +12,11 @@ type LocationState = {
 const ItemDetail = () => {
   const [item, setItem] = useState<CartItemType | null>(null);
   const location = useLocation<LocationState>();
+  const itemId = location.pathname.split("/")[2];
 
   useEffect(() => {
-    setItem(location.state.item);
+    const currentItem = Data.filter((item) => item.id === Number(itemId));
+    setItem(currentItem[0]);
   }, []);
 
   return (
